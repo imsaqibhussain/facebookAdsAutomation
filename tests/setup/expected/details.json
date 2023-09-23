@@ -1,0 +1,38 @@
+{
+  "userDetails": {
+    "Email": "test@test.com",
+    "firstName": "Alden",
+    "lastName": "Cantrell",
+    "age": "30",
+    "salary": "12345",
+    "department": "QA"
+  },
+  "updateDetails": {
+    "firstName": "Gerimedica",
+    "lastName": "BV"
+  },
+  "existingDetails": {
+    "Email": "alden@example.com",
+    "firstName": "Alden",
+    "lastName": "Cantrell",
+    "age": "45",
+    "salary": "12000",
+    "department": "Compliance"
+  },
+  "practiceForm": {
+    "firstName": "Gerimedica",
+    "lastName": "BV",
+    "Email": "test@test.com",
+    "Gender": "Male",
+    "Mobile": "0123456789",
+    "dateofBirth": "15th January 1990",
+    "Subjects": "Playwright Assignment",
+    "Hobbies": "Reading",
+    "selectAnyPicture": "picture.jpg",
+    "currentAddress": "Netherlands",
+    "stateCity": "NCR, Delhi"
+  },
+  "progressBar": "100",
+  "hoverText": "You hovered over the Button",
+  "droppedText": "Dropped!"
+}
