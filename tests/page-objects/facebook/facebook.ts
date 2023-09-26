@@ -28,12 +28,17 @@ export class facebook {
     }
 
     async loginUser(email: any, password: any) {
-        const details  = await utility.readUserDetails()
-        console.log('password:',password)
+        const details = await utility.readUserDetails()
         await page.fill(this.email, email)
-        await utility.delay(4999)
         await page.fill(this.password, details.productDetails.password)
         await page.click(this.loginButton)
+
+        await utility.delay(2000)
+        if (page.locator(this.loginButton).isVisible) {
+            await page.click('text=Log in with password')
+            await page.fill(this.password, details.productDetails.password)
+            await page.click(this.loginButton)
+        }
     }
 
     async visitMarketPlaceListing() {
