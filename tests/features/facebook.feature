@@ -1,31 +1,79 @@
 Feature: Facebook Automation
-
     Scenario: Facebook market place
-        Given Go to the url '<url>'
-        When login fb user '<username>' and '<password>' and visit market place
-        Then fill the form using '<picture>' '<title>' '<price>' '<category>' '<condition>' '<description>' '<availability>' '<location>'
-        # Then place ads in marketplace
+        Given Open facebook
+        When login facebook using username and passowrd then visit market place
+        Then fill the form using ads details '<picture>' '<title>' '<price>' '<category>' '<condition>' '<availability>' '<location>'
         Examples:
-            | url                   | username             | password | picture | title                                                       | price | category  | condition | availability | location          | description |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 1.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | London, Ontario   |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 2.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Waterloo, Ontario |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 3.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Dutton, Ontario   |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 4.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Norwich, Ontario  |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 5.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Oakville, Ontario |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 6.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ayr, Ontario      |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |          | 7.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Milton, Ontario   |             |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |  | 8.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Cambridge, Ontario |  |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |  | 9.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Toronto, Ontario   |  |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |  | 10.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ottawa, Ontario    |  |
-            # | https://facebook.com/ | saqib.msse@yhaoo.com |  | 11.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Markham, Ontario   |  |
+            | picture | title                                                       | price | category  | condition | availability | location                     |
+            | 1.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Pickering, Ontario           |
+            # | 2.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ajax, Ontario                |
+            # | 3.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Whitby, Ontario              |
+            # | 4.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Oshawa, Ontario              |
+            # | 5.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Bowmanville, Ontario         |
+            # | 6.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Milton, Ontario              |
+            # | 7.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Cambridge, Ontario           |
+            # | 8.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Guelph, Ontario              |
+            # | 9.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Kitchener, Ontario           |
+            # | 10.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Waterloo, Ontario            |
+            # | 11.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Georgetown, Ontario          |
+            # | 12.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Rockwood, Ontario            |
+            # | 13.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Oakville, Ontario            |
+            # | 14.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Hamilton, Ontario            |
+            # | 15.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Burlington, Ontario          |
+            # | 16.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Grimsby, Ontario             |
+            # | 17.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Lincoln, Ontario             |
+            # | 18.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Thorold, Ontario             |
+            # | 19.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Niagara Falls, Ontario       |
+            # | 20.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Niagara-On-The-Lake, Ontario |
+            # | 4.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Welland, Ontario             |
+            # | 5.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Brantford, Ontario           |
+            # | 6.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Beamsville, Ontario          |
+            # | 7.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ayr, Ontario                 |
+            # | 8.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Woodstock, Ontario           |
+            # | 9.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | London, Ontario              |
+            # | 10.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Norwich, Ontario             |
+            # | 11.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Tillsonburg, Ontario         |
+            # | 12.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Aylmer, Ontario              |
+            # | 13.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | St. Thomas                   |
+            # | 14.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Dutton, Ontario              |
+            # | 15.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Rodney, Ontario              |
+            # | 16.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ridgetown, Ontario           |
+            # | 17.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Chatham, Ontario             |
+            # | 18.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Tilbury, Ontario             |
+            # | 19.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Comber, Ontario              |
+            # | 20.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Windsor, Ontario             |
 
 
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 12.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Rockwood, Ontario  |  |
-| https://facebook.com/ | saqib.msse@yhaoo.com |  | 13.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Rodney, Ontario    |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 14.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ridgetown, Ontario |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 15.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Chatham, Ontario   |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 16.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Comber, Ontario    |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 17.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Windsor, Ontario   |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 18.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Aylmer, Ontario    |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 19.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Welland, Ontario   |  |
-# | https://facebook.com/ | saqib.msse@yhaoo.com |  | 20.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Brantford, Ontario |  |
+
+# Stoney Creek Mountain, ON, Canada
+# Rural Halton Hills, ON, Canada
+# Centreville Chicopee
+# Downtown Dundas
+# Vineland, CA
+# Waterdown
+# South Pelham
+# Clarington, Ohio
+# Courtice
+
+# Ingresoll (Not found on facebook)
+# Ancestor (not found)
+# Innerkip (Not found)
+# St. Catharines (Not found on facebook)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

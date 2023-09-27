@@ -3,21 +3,17 @@ import { facebook } from '../page-objects/facebook/facebook';
 
 const fb = new facebook()
 
-
-Given('Go to the url {string}', async function (url) {
-    await fb.open(url)
+Given('Open facebook', async function () {
+  await fb.open()
 });
 
-When('login fb user', async function () {
-    await fb.loginuser()
+When('login facebook using username and passowrd then visit market place', async function () {
+  await fb.loginUser()
+  await fb.visitMarketPlaceListing()
 });
 
-When('login fb user {string} and {string} and visit market place', async function (email, password) {
-    await fb.loginUser(email, password)
-    await fb.visitMarketPlaceListing()
-  });
-
-  Then('fill the form using {string} {string} {string} {string} {string} {string} {string} {string}', async function (picture,title,price,category,condition,description,availability,location) {
-    await fb.saveNewListingwithDraft(picture,title,price,category,condition,description,availability,location)
-  });
+Then('fill the form using ads details {string} {string} {string} {string} {string} {string} {string}', async (picture, title, price, category, condition, availability, location)=> {
+  
+  await fb.saveNewListingwithDraft(picture, title, price, category, condition, availability, location) 
+});
 
