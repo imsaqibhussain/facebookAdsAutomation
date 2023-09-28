@@ -2,12 +2,15 @@ Feature: Facebook Automation
     Scenario: Facebook market place
         Given Open facebook
         When login facebook using username and passowrd then visit market place
-        Then fill the form using ads details '<picture>' '<title>' '<price>' '<category>' '<condition>' '<availability>' '<location>'
-        Examples:
+        # Then fill the form using ads details '<picture>' '<title>' '<price>' '<category>' '<condition>' '<availability>' '<location>'
+         Then Save the product details into JSON file
             | picture | title                                                       | price | category  | condition | availability | location                     |
             | 1.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Pickering, Ontario           |
-            # | 2.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ajax, Ontario                |
-            # | 3.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Whitby, Ontario              |
+            | 2.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Ajax, Ontario                |
+            | 3.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Whitby, Ontario              |
+           Then fill the form using ads details
+           
+           
             # | 4.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Oshawa, Ontario              |
             # | 5.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Bowmanville, Ontario         |
             # | 6.jpg   | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Milton, Ontario              |
@@ -43,7 +46,7 @@ Feature: Facebook Automation
             # | 19.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Comber, Ontario              |
             # | 20.jpg  | New Best Mattress Sale: Unbeatable Prices for Quality Sleep | 30    | Furniture | New       | stock        | Windsor, Ontario             |
 
-
+        
 
 # Stoney Creek Mountain, ON, Canada
 # Rural Halton Hills, ON, Canada

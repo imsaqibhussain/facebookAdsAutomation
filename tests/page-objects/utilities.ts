@@ -19,9 +19,9 @@ export class Utilities {
         return result;
       }
 
-      async readAPIDetails() {
+      async readProductDetails() {
         const userDetails = readFileSync(
-            join('tests/setup/expected/api.json'),
+            join('tests/setup/expected/productsList.json'),
             'utf-8'
         );
         const details = await JSON.parse(userDetails);

@@ -36,10 +36,14 @@ export class facebook {
         await page.click(this.loginButton)
 
         await utility.delay(2000)
-        if (page.locator(this.loginButton).isVisible) {
-            await page.click('text=Log in with password')
-            await page.fill(this.password, process.env.PASSWORD)
-            await page.click(this.loginButton)
+        console.log(await page.locator(this.loginButton).isVisible)
+        console.log(await page.locator(this.loginButton).isVisible)
+        if (await page.locator(this.loginButton).isVisible()) {
+            if (page.locator('text=Log in with password').isVisible()) {
+                await page.click('text=Log in with password')
+                await page.fill(this.password, process.env.PASSWORD)
+                await page.click(this.loginButton)
+            }
         }
     }
 

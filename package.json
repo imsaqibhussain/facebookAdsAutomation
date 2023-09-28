@@ -27,6 +27,7 @@
   "dependencies": {
     "@playwright/test": "^1.38.0",
     "axios": "^1.5.0",
+    "cucumber": "^6.0.7",
     "path": "^0.12.7"
   },
   "directories": {
