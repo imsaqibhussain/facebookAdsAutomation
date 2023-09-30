@@ -4,7 +4,6 @@ import { facebook } from '../page-objects/facebook/facebook';
 import { Utilities } from '../page-objects/utilities';
 const utility = new Utilities()
 const fb = new facebook()
-
 Given('Open facebook', async function () {
   await fb.open()
 });
@@ -19,10 +18,8 @@ Then('Save the product details into JSON file and fill the marketplace forms', a
   console.log(data.length, 'Items found')
   for (let i = 0; i < data.length; i++) {
     await fb.saveNewListingwithDraft(
-      data[i].picture,
       data[i].title,
       data[i].price,
-      data[i].category,
       data[i].condition,
       data[i].availability,
       data[i].location

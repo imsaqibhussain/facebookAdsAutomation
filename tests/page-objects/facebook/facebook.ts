@@ -36,8 +36,7 @@ export class facebook {
         await page.click(this.loginButton)
 
         await utility.delay(2000)
-        console.log(await page.locator(this.loginButton).isVisible)
-        console.log(await page.locator(this.loginButton).isVisible)
+
         if (await page.locator(this.loginButton).isVisible()) {
             if (page.locator('text=Log in with password').isVisible()) {
                 await page.click('text=Log in with password')
@@ -78,7 +77,7 @@ export class facebook {
         // await fileChooser.setFiles(imagePath)
     }
 
-    async saveNewListingwithDraft(picture, title, price, category, condition, availability, location) {
+    async saveNewListingwithDraft(title, price, condition, availability, location) {
 
         await page.fill(this.title, title)
         await page.fill(this.price, price)
@@ -94,8 +93,10 @@ export class facebook {
             await page.click("//div[@role='option']")
         }
 
+        const data = await utility.readUserDetails()
+
         await page.click("text=More details")
-        await page.fill(this.description, "Upgrade your sleep with our New Best Mattress Sale! Quality, comfort, and unbeatable prices await. Limited time offer for a better night's rest. Don't miss out.")
+        await page.fill(this.description, data.productDetails.description)
         if (availability == "stock") {
             await page.click("text=List as Single Item")
             await page.click("text=List as in Stock")
