@@ -17,6 +17,8 @@ Then('Save the product details into JSON file and fill the marketplace forms', a
   const data = await dataTable.hashes();
   console.log(data.length, 'Items found')
   for (let i = 0; i < data.length; i++) {
+    console.log('Filling the Market place ad no: ', i)
+    console.log('Please wait script is entering data against ',data[i].location)
     await fb.saveNewListingwithDraft(
       data[i].title,
       data[i].price,

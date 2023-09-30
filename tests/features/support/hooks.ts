@@ -12,7 +12,7 @@ let browser: Browser;
 let context: BrowserContext;
 let page: Page;
 
-setDefaultTimeout(320000);
+setDefaultTimeout(3320000);
 
 // Function to launch the browser
 async function launchBrowser() {
@@ -25,10 +25,10 @@ async function launchBrowser() {
 // Function to create a browser context with video recording
 async function createBrowserContextwithRecording() {
   context = await browser.newContext({
-    recordVideo: {
-      dir: path.join(__dirname, 'videos'), // Video recording directory
-      size: { width: 640, height: 480 }, // Video dimensions
-    },
+    // recordVideo: {
+    //   dir: path.join(__dirname, 'videos'), // Video recording directory
+    //   size: { width: 640, height: 480 }, // Video dimensions
+    // },
     viewport: { 
       width: 1920, 
       height: 1080 
@@ -119,9 +119,9 @@ Before(async (scenario) => {
 After(async function (scenario) {
   oldvideoPath = await page.video()?.path();
   if (scenario.result?.status === Status.FAILED) {
-    await captureScreenshot();
+    // await captureScreenshot();
     console.log('Scenario is failed.');
-    await renamedCapturedVideo();
+    // await renamedCapturedVideo();
   } else {
     await closeContext();
     console.log('Your scenario is looking good!.');
