@@ -14,35 +14,18 @@ When('login facebook using username and passowrd then visit market place', async
   await fb.visitMarketPlaceListing()
 });
 
-// Then('fill the form using ads details {string} {string} {string} {string} {string} {string} {string}', async (picture, title, price, category, condition, availability, location)=> {
-  
-//   await fb.saveNewListingwithDraft(picture, title, price, category, condition, availability, location) 
-// });
-
-
-Then('Save the product details into JSON file', async function (dataTable: DataTable) {
- 
-  const adDetails = dataTable.hashes();
-
-  await utility.writeJSONToFile('productsList.json', adDetails)
-
-});
-
-Then('fill the form using ads details', async function () {
- 
-  const adDetails = await utility.readProductDetails()
-  // console.log('adDetails', adDetails)
-
-  await utility.delay(5999)
-
-  // Iterate through the array and call the saveNewListingwithDraft function for each set of data
-  for (const details of adDetails) {
-    const { picture, title, price, category, condition, availability, location } = details;
-
-    // Call your saveNewListingwithDraft function with the current set of data
-    console.log('testing',picture, title, price, category, condition, availability, location)
-    
-    fb.saveNewListingwithDraft(picture, title, price, category, condition, availability, location);
+Then('Save the product details into JSON file and fill the marketplace forms', async function (dataTable: DataTable) {
+  const data = await dataTable.hashes();
+  console.log(data.length, 'Items found')
+  for (let i = 0; i < data.length; i++) {
+    await fb.saveNewListingwithDraft(
+      data[i].picture,
+      data[i].title,
+      data[i].price,
+      data[i].category,
+      data[i].condition,
+      data[i].availability,
+      data[i].location
+    );
   }
 });
-

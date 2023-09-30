@@ -56,40 +56,45 @@ export class facebook {
         await page.click(this.itemForSale)
     }
 
+    async selectPicture(){
+          // const fileChooserPromise = await page.waitForEvent('filechooser');
+        // await page.getByText("Add Photos").click();
+        // const fileChooser = await fileChooserPromise;
+        // // Get the directory containing the current file
+        // const currentDirectory = dirname('tests/setup/expected');
+        // console.log("currentDirectory", currentDirectory)
+        // const directoryPath = 'tests/setup/expected';
+        // const imagePath = path.join(directoryPath, picture);
+        // // Read the image file
+        // fs.readFile(imagePath, (err, data) => {
+        //     if (err) {
+        //         console.error(err);
+        //     } else {
+        //         // 'data' contains the binary content of the image
+        //         // You can do whatever you want with the image data here
+        //     }
+        // });
+        // // Construct the full path to the image file
+        // await fileChooser.setFiles(imagePath)
+    }
+
     async saveNewListingwithDraft(picture, title, price, category, condition, availability, location) {
 
-        const fileChooserPromise = page.waitForEvent('filechooser');
-        await page.getByText("Add Photos").click();
-        const fileChooser = await fileChooserPromise;
-        // Get the directory containing the current file
-        const currentDirectory = dirname('tests/setup/expected');
-        console.log("currentDirectory", currentDirectory)
-        const directoryPath = 'tests/setup/expected';
-        const imagePath = path.join(directoryPath, picture);
-        // Read the image file
-        fs.readFile(imagePath, (err, data) => {
-            if (err) {
-                console.error(err);
-            } else {
-                // 'data' contains the binary content of the image
-                // You can do whatever you want with the image data here
-            }
-        });
-        // Construct the full path to the image file
-        await fileChooser.setFiles(imagePath)
         await page.fill(this.title, title)
         await page.fill(this.price, price)
-        await page.click(this.categoryDropDown)
-        if (category == "Furniture") {
-            await page.locator("(//div[@class='x8aayfw'])[2]").click()
-        }
-        else {
-            console.log("at the moment script only supporting furniture category")
-        }
+        // await page.click(this.categoryDropDown)
+        // if (category == "Furniture") {
+        //     await page.locator("(//div[@class='x8aayfw'])[2]").click()
+        // }
+        // else {
+        //     console.log("at the moment script only supporting furniture category")
+        // }
         await page.click(this.conditionDropDown)
         if (condition == "New") {
             await page.click("//div[@role='option']")
         }
+
+        await page.click("text=More details")
         await page.fill(this.description, "Upgrade your sleep with our New Best Mattress Sale! Quality, comfort, and unbeatable prices await. Limited time offer for a better night's rest. Don't miss out.")
         if (availability == "stock") {
             await page.click("text=List as Single Item")
@@ -99,7 +104,8 @@ export class facebook {
         await page.fill(this.location, location)
         await page.click('text=' + location)
         await page.click("//span[text()='Hide from friends']")
-        await page.click("text=Door drop-off")
-        // await page.click(this.saveDraft)
+        // await page.click("text=Door drop-off")
+        await page.click(this.saveDraft)
+        await page.click(this.itemForSale)
     }
 }
