@@ -24,7 +24,9 @@ Then('Save the product details into JSON file and fill the marketplace forms', a
       data[i].price,
       data[i].condition,
       data[i].availability,
-      data[i].location
+      data[i].location,
+      data[i].image,
+      data[i].category
     );
   }
 });
