@@ -90,7 +90,8 @@ export class facebook {
         await page.click('text=' + location)
         await page.click("//span[text()='Hide from friends']")
         await page.click("text=Door drop-off")
-        // await page.click(this.saveDraft)
-        // await page.click(this.itemForSale)
+        await utility.delay(5000)
+        await page.click(this.saveDraft)
+        await page.click(this.itemForSale)
     }
 }
